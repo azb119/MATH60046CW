@@ -1,12 +1,5 @@
 import numpy as np
-import csv
 from scipy.linalg import solve_toeplitz
-from scipy.optimize import minimize
-
-
-with open('MATH60046CW/158.csv') as csvfile:
-    reader = csv.reader(csvfile, delimiter=',')
-    data = np.array(list(reader)[0], dtype='float64')
 
 
 # Yule-Walker untapered
