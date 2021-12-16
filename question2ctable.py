@@ -1,7 +1,7 @@
 import numpy as np
 from question2 import *
 import csv
-
+from tabulate import tabulate
 
 with open('MATH60046CW/158.csv') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
@@ -40,5 +40,6 @@ for i in range(len(pvals)):
     _, sigma2 = approxMLE(data, p)
     MLE_aic[i] = AIC(N, p, sigma2)
 
-print(np.round(np.concatenate(([YW_aic],
-      [YW_tapered_aic], [MLE_aic])).T, decimals=3))
+print(tabulate(np.round(np.concatenate(([YW_aic],
+      [YW_tapered_aic], [MLE_aic])).T, decimals=3),
+      headers=["YW", "YW 50t", "MLE"]))
