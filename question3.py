@@ -47,7 +47,7 @@ indices = np.arange(119, 129)
 table_data = np.concatenate(([indices], [actual_vals], 
                              [forecasted])).T
 print(tabulate(table_data, 
-               headers=['t', 'actual value', 'forecasted value']))
+            headers=['t', 'actual value', 'forecasted value']))
 
 
 
