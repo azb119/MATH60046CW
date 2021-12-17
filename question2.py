@@ -28,7 +28,8 @@ def acvs_estimator(x):
 
 def YW(x, p):
     """
-    Fit time series data x to an AR(p) model using untapered Yule-Walker.
+    Fit time series data x to an AR(p) model using untapered 
+    Yule-Walker.
 
     :param x: n-dim array, time series
     :param p: integer, parameter for AR(p)
@@ -57,7 +58,7 @@ def cos_taper(N, p):
     """
     Calculate ht for the px100% cosine taper for N data points.
 
-    :param N: integer, number of data points for time series, len(X)
+    :param N: integer, no. of data points, len(X)
     :param p: float, 0 < p < 1 how much is tapered
 
     :return ht: N-dim array, ht values
@@ -79,8 +80,8 @@ def cos_taper(N, p):
 
 def YW_50taper(x, p):
     """
-    Fit time series x to AR(p) model using the tapered Yule-Walker
-    method, with a 50% cosine taper.
+    Fit time series x to AR(p) model using the tapered 
+    Yule-Walker method, with a 50% cosine taper.
 
     :param x: n-dim array, time series
     :param p: integer, parameter for AR(p)
@@ -92,7 +93,7 @@ def YW_50taper(x, p):
     n = len(x)
     ht = cos_taper(n, 0.5)
     htx = ht * x # tapered time series
-    htx = htx * np.sqrt(n) # to offset the difference with normal acvs
+    htx = htx * np.sqrt(n) # to offset the diff with normal acvs
     # reuse the function from above
     phis, sigma2= YW(htx, p)
     return phis, sigma2
@@ -101,8 +102,9 @@ def YW_50taper(x, p):
 # approx maximum likelihood, we assume p < N
 def approxMLE(x, p):
     """
-    Fit time series x to AR(p) model using the maximum likelihood
-    method, and assuming the first p data points are deterministic.
+    Fit time series x to AR(p) model using the maximum 
+    likelihood method, and assuming the first p data points 
+    are deterministic.
 
     :param x: n-dim array, time series
     :param p: integer, parameter for AR(p)

@@ -95,7 +95,8 @@ for i in range(3):
     plt.figure(i)
     for j in range(5):
         plt.plot(rvals, bias_each_r[:,j, i])
-    plt.legend(['Periodogram', 'p=0.05', 'p=0.1', 'p=0.25', 'p=0.5'])
+    plt.legend(['Periodogram', 'p=0.05',
+                'p=0.1', 'p=0.25', 'p=0.5'])
     plt.xlabel('r')
     plt.ylabel('bias')
     plt.title(f'f={freqs[i]}/128')

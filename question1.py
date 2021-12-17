@@ -3,19 +3,19 @@ import numpy as np
 
 def S_ARMA(f, phis, thetas, sigma2):
     """
-    Compute the spectral density for ARMA(len(phis),len(thetas)) process.
+    Compute spectral density for ARMA(len(phis),len(thetas)).
 
     If p = 0, q > 0, i.e. you pass in an empty array for phis, 
     then it will compute the spectrum of an MA(q) process. 
     If p > 0, q = 0, i.e. you pass in an empty array for thetas, 
     it will compute the spectrum of an AR(p) process.
 
-    :param f: n-dim numpy array, freqs at which it should be evaluated.
-    :param phis: p-dim numpy array, the vector [φ1,p, ..., φp,p].
-    :param thetas: q-dim numpy array, the vector [θ1,q, ..., θq,q]
-    :param sigma2: float, a scalar for the variance of the white noise.
+    :param f: n-dim numpy array, freqs to be evaluated at.
+    :param phis: p-dim numpy array, [phi1,p, ..., phip,p].
+    :param thetas: q-dim numpy array, [theta1,q, ..., thetaq,q]
+    :param sigma2: float, variance of the white noise.
 
-    :return sf: n-dim numpy array, vector of sdf evaluated at each f
+    :return sf: n-dim numpy array, sdf evaluated at each f
     """
 
     def Gsq(param):
